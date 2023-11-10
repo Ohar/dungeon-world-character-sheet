@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Лист персонажа</title>
+    <style type="text/css" media="all">
+        body {
+            display: flex;
+            padding: 0 1rem;
+            margin: 0;
+            font-family: Verdana, Helvetica, Arial, sans-serif;
+            background-color: darkgray;
+            font-size: 16px;
+        }
+
+        .className {
+            width: 5rem;
+            background-color: #000;
+        }
+        .className_header {
+            position: sticky;
+            top: 15vh;
+            writing-mode: vertical-lr;
+            transform: rotate(180deg);
+            font-size: 4rem;
+            background-color: darkgray;
+            padding: 1rem 0;
+        }
+
+        .main {
+            padding: 1rem;
+        }
+
+        .head {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+        }
+
+        .experience,
+        .level,
+        .name {
+            font-size: 1.75rem;
+        }
+
+        .name {
+            width: 60%;
+            display: block;
+            border: 0 none;
+            background-color: #fff;
+        }
+        .name_examplesPreText {
+            font-weight: bold;
+        }
+
+        .level {
+            display: flex;
+        }
+        .level_value {
+            background-color: #fff;
+            height: 2.1rem;
+            width: 2.1rem;
+            border-radius: 100%;
+        }
+
+        .experience {
+            display: flex;
+            background-color: #fff;
+        }
+        .experience_value {
+            width: 5rem;
+        }
+
+        .level,
+        .experience {
+            padding: 0 .5rem;
+        }
+
+        .level_header,
+        .experience_header {
+            text-transform: uppercase;
+            margin-right: .5rem;
+        }
+
+        .level_value,
+        .experience_value {
+            text-align: center;
+        }
+
+        .info {
+            display: flex;
+        }
+        .info_column {
+            margin: 1rem;
+        }
+
+        .feature_name {
+            text-transform: uppercase;
+        }
+        .feature_name::after {
+            content: ':';
+        }
+
+        .strives_list {
+            list-style-type: none;
+            padding: 0;
+        }
+        .strive_header {
+            font-size: 1.25rem;
+            font-weight: bold;
+        }
+
+        .armor,
+        .damage,
+        .health {
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .appearance_header,
+        .armor_header,
+        .damage_header,
+        .health_header,
+        .items_header,
+        .money_header,
+        .moves_header,
+        .strives_header {
+            color: #fff;
+            background-color: #000;
+            font-size: 1.5rem;
+            padding: .2rem 1rem;
+        }
+
+        .armor_header,
+        .damage_header,
+        .health_header {
+            padding-right: 10rem;
+        }
+
+        .armor_value,
+        .damage_value,
+        .health_value {
+            position: absolute;
+            height: 4rem;
+            width: 4rem;
+            top: -1rem;
+            box-sizing: border-box;
+            text-align: center;
+            background-color: #fff;
+        }
+
+        .damage_value,
+        .health_value {
+            padding-top: 1rem;
+        }
+
+        .armor_value,
+        .damage_value {
+            right: 1.5rem;
+        }
+
+        .armor_value {
+            padding-top: .25rem;
+            font-size: 2.75rem;
+        }
+
+        .damage_value {
+            font-size: 2rem;
+        }
+        .damage_value::before {
+            content: 'к';
+        }
+
+        .health_value {
+            display: flex;
+            right: 1rem;
+            width: 5rem;
+            padding-top: 0;
+            font-size: 1.1rem;
+            justify-content: center;
+            align-items: center;
+        }
+        .health_separator {
+            border: 0 none;
+            margin: 0;
+            overflow: auto;
+        }
+        .health_separator::after {
+            content: '|';
+        }
+
+        .strive_description {
+            margin: 0.5rem 0;
+        }
+
+        .statsAndStuff {
+            display: flex;
+        }
+    </style>
+</head>
+<body>
+    <header class="className"><header class="className_header">Воин</header></header>
+    <main class="main">
+        <section class="head">
+            <input class="name" placeholder="Анника">
+            <section class="level">
+                <header class="level_header">Уровень</header>
+                <div class="level_value" contenteditable placeholder="1"/>
+            </section>
+            <section class="experience">
+                <header class="experience_header">Опыт</header>
+                <div class="experience_value" contenteditable placeholder="0"/>
+            </section>
+        </section>
+        <p class="name_examples">
+            <span class="name_examplesPreText">Примеры имён:</span>
+            <span class="name_examplesList">Анника, Аякс, Бальдуин, Бартлби, Бекка, Брианна, Брунгильда, Грегор, Грета, Дим, Зоток, Кадеус, Кастор, Китракет, Обри, Озрук, Олив, Рандольф, Рудигер, Сурт, Тэлиан, Уолтон, Финнеган, Хазрит, Хоб, Хоук, Шанна, Шарасет, Шеварал, Элоир, Эльдар, Янос, Ярл.</span>
+        </p>
+        <section class="info">
+            <section class="appearance info_column">
+                <header class="appearance_header">Внешность</header>
+                <p class="appearance_preText">Выберите одну черту внешности в каждом пункте или придумайте сами</p>
+                <p class="feature">
+                    <span class="feature_name">Взгляд</span>
+                    <span class="feature_variants">суровые глаза, безжизненные глаза, или страстные глаза</span>
+                </p>
+                <p class="feature">
+                    <span class="feature_name">Волосы</span>
+                    <span class="feature_variants">растрёпанные волосы, короткие волосы, или поношенный шлем</span>
+                </p>
+                <p class="feature">
+                    <span class="feature_name">Кожа</span>
+                    <span class="feature_variants">загрубевшая кожа, смуглая кожа, или шрамы</span>
+                </p>
+                <p class="feature">
+                    <span class="feature_name">Тело</span>
+                    <span class="feature_variants">мускулистое, гибкое, или покалеченное</span>
+                </p>
+            </section>
+            <section class="armrHlthDmg info_column">
+                <section class="armor">
+                    <header class="armor_header">Броня</header>
+                    <div class="armor_value" contenteditable>3</div>
+                </section>
+                <section class="health">
+                    <header class="health_header">ОЗ</header>
+                    <div class="health_value">
+                        <span class="health_cur" contenteditable>21</span>
+                        <hr class="health_separator">
+                        <span class="health_max">21</span>
+                    </div>
+                </section>
+                <section class="damage">
+                    <header class="damage_header">Урон</header>
+                    <div class="damage_value" contenteditable>10</div>
+                </section>
+            </section>
+            <section class="strives info_column">
+                <header class="strives_header">Стремление</header>
+                <ul class="strives_list">
+                    <li class="strives_item strive">
+                        <header class="strive_header">Долг</header>
+                        <p class="strive_description">Подвергните себя опасности, чтобы защитить тех, кто слабее Вас</p>
+
+                    </li>
+                    <li class="strives_item strive">
+                        <header class="strive_header">Миротворец</header>
+                        <p class="strive_description">Попробуйте разрешить конфликт, не проливая крови</p>
+
+                    </li>
+                    <li class="strives_item strive">
+                        <header class="strive_header">Слава</header>
+                        <p class="strive_description">Красуйтесь, чтобы впечатлить других</p>
+
+                    </li>
+                </ul>
+            </section>
+        </section>
+        <section class="mainColumn">
+            <section class="statsAndStuff">
+                <section class="stats">
+                    <section class="stat">
+                        <header class="stat_name">Сила</header>
+                        <label class="trauma">
+                            <span class="trauma_name">Слабость</span>
+                            <input class="trauma_checkbox" type="checkbox">
+                        </label>
+                        <div class="modifier">
+                            <span class="modifier_name">СИЛ</span>
+                            <span class="modifier_value">+2</span>
+                        </div>
+                    </section>
+                    <section class="stat">
+                        <header class="stat_name">Ловкость</header>
+                        <label class="trauma">
+                            <span class="trauma_name">Дрожь</span>
+                            <input class="trauma_checkbox" type="checkbox">
+                        </label>
+                        <div class="modifier">
+                            <span class="modifier_name">ЛВК</span>
+                            <span class="modifier_value">+1</span>
+                        </div>
+                    </section>
+                    <section class="stat">
+                        <header class="stat_name">Телосложение</header>
+                        <label class="trauma">
+                            <span class="trauma_name">Болезненность</span>
+                            <input class="trauma_checkbox" type="checkbox">
+                        </label>
+                        <div class="modifier">
+                            <span class="modifier_name">ТЕЛ</span>
+                            <span class="modifier_value">+1</span>
+                        </div>
+                    </section>
+                    <section class="stat">
+                        <header class="stat_name">Интеллект</header>
+                        <label class="trauma">
+                            <span class="trauma_name">Головокружение</span>
+                            <input class="trauma_checkbox" type="checkbox">
+                        </label>
+                        <div class="modifier">
+                            <span class="modifier_name">ИНТ</span>
+                            <span class="modifier_value">−1</span>
+                        </div>
+                    </section>
+                    <section class="stat">
+                        <header class="stat_name">Мудрость</header>
+                        <label class="trauma">
+                            <span class="trauma_name">Ошеломение</span>
+                            <input class="trauma_checkbox" type="checkbox">
+                        </label>
+                        <div class="modifier">
+                            <span class="modifier_name">МДР</span>
+                            <span class="modifier_value">0</span>
+                        </div>
+                    </section>
+                    <section class="stat">
+                        <header class="stat_name">Харизма</header>
+                        <label class="trauma">
+                            <span class="trauma_name">Уродство</span>
+                            <input class="trauma_checkbox" type="checkbox">
+                        </label>
+                        <div class="modifier">
+                            <span class="modifier_name">ХАР</span>
+                            <span class="modifier_value">0</span>
+                        </div>
+                    </section>
+                </section>
+                <section class="stuff">
+                    <section class="money">
+                        <header class="money_header">Деньги</header>
+                        <textarea class="money_text"></textarea>
+                    </section>
+                    <section class="items">
+                        <header class="items_header">Снаряжение</header>
+                        <div class="items_capacity">9</div>
+                        <div class="items_text" contenteditable placeholder="____"/>
+                    </section>
+                </section>
+            </section>
+            <section class="moves">
+                <header class="moves_header">Ходы</header>
+                <div class="moves_text" contenteditable placeholder="____"/>
+            </section>
+        </section>
+    </main>
+</body>
+</html>
